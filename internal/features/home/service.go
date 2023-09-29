@@ -3,7 +3,7 @@ package home
 import (
 	"context"
 
-	"github.com/stackus/todos/internal/domain"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/domain"
 )
 
 type (

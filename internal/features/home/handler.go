@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/stackus/todos/internal/templates/pages"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/templates/pages"
 )
 
 type (

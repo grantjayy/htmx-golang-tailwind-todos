@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/stackus/todos/internal/domain"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/domain"
 )
 
 func Test_service_List(t *testing.T) {

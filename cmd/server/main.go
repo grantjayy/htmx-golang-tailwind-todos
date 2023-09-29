@@ -9,14 +9,14 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/stackus/todos/internal/assets"
-	"github.com/stackus/todos/internal/domain"
-	"github.com/stackus/todos/internal/features/home"
-	"github.com/stackus/todos/internal/features/todos"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/assets"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/domain"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/features/home"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/features/todos"
 )
 
 func main() {
-	var port = ":3000"
+	var port = ":8080"
 
 	flag.StringVar(&port, "port", port, "port to listen on")
 	flag.Parse()

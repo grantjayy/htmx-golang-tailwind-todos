@@ -12,8 +12,8 @@ import (
 	"github.com/a-h/templ"
 	"github.com/google/uuid"
 
-	"github.com/stackus/todos/internal/domain"
-	"github.com/stackus/todos/internal/templates/pages"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/domain"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/templates/pages"
 )
 
 func Test_handler_Home(t *testing.T) {

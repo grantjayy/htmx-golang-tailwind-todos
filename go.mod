@@ -1,6 +1,6 @@
-module github.com/stackus/todos
+module github.com/grantjayy/htmx-golang-tailwind-todos
 
-go 1.20
+go 1.21
 
 require (
 	github.com/a-h/templ v0.2.282

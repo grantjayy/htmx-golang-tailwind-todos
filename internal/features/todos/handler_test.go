@@ -16,9 +16,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/stackus/todos/internal/domain"
-	"github.com/stackus/todos/internal/templates/pages"
-	"github.com/stackus/todos/internal/templates/partials"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/domain"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/templates/pages"
+	"github.com/grantjayy/htmx-golang-tailwind-todos/internal/templates/partials"
 )
 
 func Test_handler_Create(t *testing.T) {
