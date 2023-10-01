@@ -1,6 +1,6 @@
 .PHONY: init assets generate run test build-prod
 
-DIST_DIR := internal/assets/dist
+STATIC_DIR := internal/assets/static
 
 # Install some important commands and tools
 init:
@@ -11,8 +11,10 @@ init:
 
 # Build the assets
 assets:
-	npx tailwindcss -i ./internal/assets/tailwind.css -o ./$(DIST_DIR)/styles.css
-	curl -o $(DIST_DIR)/htmx.js https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js
+	npx tailwindcss -i ./internal/assets/tailwind.css -o ./$(STATIC_DIR)/styles.css
+	curl -o $(STATIC_DIR)/htmx.js https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js
+	curl -o $(STATIC_DIR)/hyperscript.js https://unpkg.com/hyperscript.org@0.9.11/dist/_hyperscript.min.js
+	find ./internal/assets/static/ -type f \( -name '*.js' -o -name '*.css' \) -exec brotli --best --force {} \; -exec mv "{}.br" "{}" \;
 
 # Generate stuff and things
 generate:
@@ -28,7 +30,7 @@ test:
 
 # Build production binary
 build-prod:
-	CGO_ENABLED=0 go build -o ./bin/app ./cmd/server/...
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o ./bin/app ./cmd/server/...
 
-deploy:
-	fly deploy
+deploy-prod:
+	fly deploy --config fly.prod.toml --remote-only --strategy immediate

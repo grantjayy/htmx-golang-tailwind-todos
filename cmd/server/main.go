@@ -22,6 +22,7 @@ func main() {
 	flag.Parse()
 
 	router := chi.NewRouter()
+
 	list := domain.NewTodos()
 	list.Add("Bake a cake")
 	list.Add("Feed the cat")

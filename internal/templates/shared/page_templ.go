@@ -31,7 +31,7 @@ func Page(title string) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/dist/styles.css\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/dist/favicon.svg\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"index, follow\"><meta name=\"revisit-after\" content=\"7 days\"><meta name=\"language\" content=\"English\"><script defer src=\"/dist/htmx.js\">")
+		_, err = templBuffer.WriteString("</title><link rel=\"stylesheet\" href=\"/static/styles.css\"><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/static/favicon.png\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"index, follow\"><meta name=\"revisit-after\" content=\"7 days\"><meta name=\"language\" content=\"English\"><script defer src=\"/static/htmx.js\">")
 		if err != nil {
 			return err
 		}
@@ -40,12 +40,21 @@ func Page(title string) templ.Component {
 		if err != nil {
 			return err
 		}
+		_, err = templBuffer.WriteString("</script><script defer src=\"/static/hyperscript.js\">")
+		if err != nil {
+			return err
+		}
+		var_4 := ``
+		_, err = templBuffer.WriteString(var_4)
+		if err != nil {
+			return err
+		}
 		_, err = templBuffer.WriteString("</script></head><body class=\"h-full bg-yellow-50 font-mono\"><section class=\"max-w-lg mx-auto my-2\"><h1 class=\"text-8xl font-black text-center m-0 pb-2\">")
 		if err != nil {
 			return err
 		}
-		var_4 := `Todos`
-		_, err = templBuffer.WriteString(var_4)
+		var_5 := `Todos`
+		_, err = templBuffer.WriteString(var_5)
 		if err != nil {
 			return err
 		}

@@ -1,0 +1,25 @@
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+
+app = "golang-htmx"
+primary_region = "dfw"
+
+[build]
+
+[http_service]
+internal_port = 8080
+force_https = false
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
+processes = ["app"]
+
+# @see https://community.fly.io/t/cloudflare-525-error-randomly-occurs/1798/44
+[[services.ports]]
+force_https = false
+handlers = ["http"]
+port = 80
+
+[[services.ports]]
+force_https = false
+handlers = ["tls", "http"]
+port = 443

@@ -6,12 +6,14 @@ templ Page(title string) {
 	<head>
 		<meta charset="UTF-8"/>
 		<title>{ title }</title>
-		<link rel="stylesheet" href="/dist/styles.css"/>
+		<link rel="stylesheet" href="/static/styles.css"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="robots" content="index, follow"/>
 		<meta name="revisit-after" content="7 days"/>
 		<meta name="language" content="English"/>
-		<script src="/dist/htmx.js"></script>
+		<script defer src="/static/htmx.js"></script>
+		<script defer src="/static/hyperscript.js"></script>
 	</head>
 	<body class="h-full bg-yellow-50 font-mono">
 		<section class="max-w-lg mx-auto my-2">

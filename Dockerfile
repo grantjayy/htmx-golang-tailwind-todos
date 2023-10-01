@@ -5,7 +5,7 @@ FROM golang:1.21.1-alpine3.18 as builder
 RUN apk update && apk upgrade --no-cache
 
 # Install Node.js and npm for tailwindcss
-RUN apk add nodejs npm make curl
+RUN apk add nodejs npm make curl brotli
 
 WORKDIR /app
 
@@ -18,12 +18,12 @@ COPY . .
 # Build the application for production
 RUN make assets
 RUN make generate
-RUN GOOS=linux make build-prod
+RUN make build-prod
 
 # https://github.com/GoogleContainerTools/distroless/blob/main/base/README.md
-FROM gcr.io/distroless/static-debian12
+FROM gcr.io/distroless/static-debian12:nonroot-amd64
 
 COPY --from=builder /app/bin/app /app/bin/app
-COPY --from=builder /app/internal/assets/dist /app/internal/assets/dist
+COPY --from=builder /app/internal/assets/static /app/internal/assets/static
 
 CMD ["/app/bin/app"]

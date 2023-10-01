@@ -28,6 +28,8 @@ func Mount(r chi.Router, h Handler) {
 }
 
 func (h handler) Home(w http.ResponseWriter, r *http.Request) {
+	// w.Header().Set("Content-Type", "text/html; charset=UTF-8")
+
 	todos, err := h.service.List(r.Context())
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
