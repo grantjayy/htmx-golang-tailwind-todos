@@ -13,6 +13,11 @@ auto_start_machines = true
 min_machines_running = 0
 processes = ["app"]
 
+[http_service.concurrency]
+type = "requests"
+soft_limit = 100
+hard_limit = 500
+
 # @see https://community.fly.io/t/cloudflare-525-error-randomly-occurs/1798/44
 [[services.ports]]
 force_https = false
@@ -23,3 +28,13 @@ port = 80
 force_https = false
 handlers = ["tls", "http"]
 port = 443
+
+[[services.http_checks]]
+interval = 60000
+grace_period = "5s"
+method = "get"
+path = "/"
+protocol = "http"
+timeout = 2000
+tls_skip_verify = false
+[services.http_checks.headers]

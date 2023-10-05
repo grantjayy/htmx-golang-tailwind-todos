@@ -1,0 +1,12 @@
+execution:
+- concurrency: 500
+  ramp-up: 15s
+  hold-for: 1m30s
+  scenario: simple
+
+scenarios:
+  simple:
+    requests:
+    # - http://golang-htmx.fly.dev
+    # - https://api-moamentoring-com-dev-pe2cyv5ara-uc.a.run.app
+    # - https://test-golang-htmx-pe2cyv5ara-uc.a.run.app
